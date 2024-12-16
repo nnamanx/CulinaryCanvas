@@ -1,0 +1,76 @@
+{
+  "recipes": [
+    {
+      "title": "Spaghetti Bolognese",
+      "description": "A classic Italian pasta dish with rich tomato sauce.",
+      "ingredients": [
+        "Spaghetti",
+        "Ground Beef",
+        "Tomato Sauce",
+        "Onions",
+        "Garlic"
+      ],
+      "preparationSteps": [
+        "Boil spaghetti",
+        "Cook ground beef with onions and garlic",
+        "Mix with tomato sauce and simmer"
+      ],
+      "tags": [
+        "Italian",
+        "Main Course"
+      ],
+      "difficulty": "Medium",
+      "id": "1",
+      "lastUpdated": "2024-12-30T06:35:50.629Z",
+      "order": 0
+    },
+    {
+      "id": "2",
+      "title": "Chicken Tikka Masala",
+      "description": "A flavorful Indian curry with tender chicken pieces in a spiced creamy sauce.",
+      "ingredients": [
+        "Chicken",
+        "Yogurt",
+        "Tomato Puree",
+        "Cream",
+        "Spices"
+      ],
+      "preparationSteps": [
+        "Marinate chicken in yogurt and spices.",
+        "Cook chicken until tender.",
+        "Prepare sauce with tomato puree and cream, then combine with chicken."
+      ],
+      "tags": [
+        "Indian",
+        "Main Course"
+      ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-29T12:00:00Z",
+      "order": 2
+    },
+    {
+      "id": "3",
+      "title": "Caesar Salad",
+      "description": "A crisp salad with romaine lettuce, croutons, and a tangy Caesar dressing.",
+      "ingredients": [
+        "Romaine Lettuce",
+        "Croutons",
+        "Parmesan",
+        "Caesar Dressing"
+      ],
+      "preparationSteps": [
+        "Chop romaine lettuce.",
+        "Toss lettuce with croutons, Parmesan, and Caesar dressing."
+      ],
+      "tags": [
+        "Salad",
+        "Appetizer"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-28T14:00:00Z",
+      "order": 1
+    }
+  ],
+  "messages": [
+  ]
+}
