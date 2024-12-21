@@ -27,6 +27,22 @@
     margin-bottom: 10px;
   }
   
+  .recipe-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-tag {
+    background-color: #e7f3ff;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #007bff;
+    text-transform: capitalize;
+  }
+  
   .recipe-ingredients,
   .recipe-steps {
     margin-bottom: 20px;
