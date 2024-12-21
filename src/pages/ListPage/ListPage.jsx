@@ -14,17 +14,25 @@ const ListPage = () => {
 
   return (
     <div className="list-page">
-    <h1>All Recipes</h1>
-    <div className="recipe-list">
-      {recipes.map((recipe) => (
-        <div className="recipe-card" key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <a href={`/recipes/${recipe.id}`} className="view-recipe-link">View Recipe</a>
-        </div>
-      ))}
+      <h1>All Recipes</h1>
+      <div className="recipe-list">
+        {recipes.map((recipe) => (
+          <div className="recipe-card" key={recipe.id}>
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+            {/* Tags Section */}
+            {recipe.tags && (
+              <div className="recipe-tags">
+                {recipe.tags.map((tag, index) => (
+                  <span key={index} className="recipe-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+            <a href={`/recipes/${recipe.id}`} className="view-recipe-link">View Recipe</a>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
   );
 };
 

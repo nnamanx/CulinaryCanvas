@@ -74,3 +74,28 @@
     background-color: #0056b3;
   }
   
+  /* Recipe Tags Section */
+.recipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 15px;
+}
+
+.recipe-tag {
+  background-color: #e7f3ff;
+  color: #007bff;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #007bff;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.recipe-tag:hover {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
