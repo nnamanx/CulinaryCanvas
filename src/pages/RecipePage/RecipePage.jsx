@@ -23,15 +23,17 @@ const RecipePage = () => {
     <div className="recipe-page">
       <h1>{recipe.title}</h1>
       <p className="recipe-description">{recipe.description}</p>
-      <div className="recipe-info">
-        <h3>Difficulty: {recipe.difficulty}</h3>
-        <h4>Tags:</h4>
-        <div className="recipe-tags">
-          {recipe.tags.map((tag, index) => (
-            <span key={index} className="recipe-tag">{tag},</span>
-          ))}
+        <div className="recipe-info">
+          <h3>Difficulty: {recipe.difficulty}</h3>
+          <h4>Last Updated: {new Date(recipe.lastUpdated).toLocaleString()}</h4>
+          <h4>Tags:</h4>
+          <div className="recipe-tags">
+            {recipe.tags.map((tag, index) => (
+              <span key={index} className="recipe-tag">{tag}</span>
+            ))}
+          </div>
         </div>
-      </div>
+
       <div className="recipe-ingredients">
         <h3>Ingredients:</h3>
         <ul>

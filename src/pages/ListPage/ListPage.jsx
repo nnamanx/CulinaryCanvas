@@ -15,12 +15,20 @@ const ListPage = () => {
   }, []);
 
   const addRecipe = (newRecipe) => {
+    const nextId = recipes.length > 0 ? Math.max(...recipes.map((r) => r.id)) + 1 : 1;
+    const recipeWithIdAndTimestamp = { 
+      ...newRecipe, 
+      id: nextId, 
+      lastUpdated: new Date().toISOString() // Add lastUpdated timestamp
+    };
+  
+
     fetch('http://localhost:3030/recipes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newRecipe),
+      body: JSON.stringify(recipeWithIdAndTimestamp),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -39,18 +47,17 @@ const ListPage = () => {
       <div className="recipe-list">
         {recipes.map((recipe) => (
           <div className="recipe-card" key={recipe.id}>
-            <h3>{recipe.title}</h3>
-              {recipe.tags && (
-              <div className="recipe-tags">
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+          <div className="recipe-tags">
                 {recipe.tags.map((tag, index) => (
                   <span key={index} className="recipe-tag">{tag}</span>
                 ))}
               </div>
-            )}
-
-            <p>{recipe.description}</p>
-            <a href={`/recipes/${recipe.id}`} className="view-recipe-link">View Recipe</a>
-          </div>
+          <p className="last-updated">Last Updated: {new Date(recipe.lastUpdated).toLocaleString()}</p>
+          <a href={`/recipes/${recipe.id}`} className="view-recipe-link">View Recipe</a>
+        </div>
+        
         ))}
       </div>
       {showModal && <AddRecipeModal onClose={() => setShowModal(false)} onSave={addRecipe} />}
@@ -59,3 +66,5 @@ const ListPage = () => {
 };
 
 export default ListPage;
+
+              
