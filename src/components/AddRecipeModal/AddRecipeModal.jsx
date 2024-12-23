@@ -28,7 +28,7 @@ const AddRecipeModal = ({ onClose, onSave }) => {
         ...prevData,
         tags: [...prevData.tags, newTag.trim()],
       }));
-      setNewTag('');
+      setNewTag(''); // Clear the text box
     }
   };
 
@@ -79,6 +79,30 @@ const AddRecipeModal = ({ onClose, onSave }) => {
               <option value="Medium">Medium</option>
               <option value="Hard">Hard</option>
             </select>
+          </label>
+          <label>
+            Tags:
+            <div className="tag-input">
+              <input
+                type="text"
+                value={newTag}
+                onChange={handleTagInputChange}
+                placeholder="Enter a tag"
+              />
+              <button type="button" onClick={handleAddTag}>
+                Add Tag
+              </button>
+            </div>
+            <div className="tag-list">
+              {formData.tags.map((tag, index) => (
+                <span key={index} className="tag-item">
+                  {tag}
+                  <button type="button" onClick={() => handleRemoveTag(tag)} className="remove-tag">
+                    &times;
+                  </button>
+                </span>
+              ))}
+            </div>
           </label>
           <div className="modal-actions">
             <button type="submit">Save</button>

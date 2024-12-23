@@ -1,89 +1,187 @@
 
-  /* Add Recipe Button */
-  .add-recipe-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the overlay is above the page content */
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1010; /* Ensure the modal content is above the overlay */
+  position: relative; /* Position relative ensures layering works correctly */
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
   
-  .add-recipe-button:hover {
-    background-color: #0056b3;
-  }
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999; /* Ensure overlay is above the page */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Modal Box */
+    .modal {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Ensure modal is above overlay */
+      position: relative;
+    }
+    
+    .modal h2 {
+      margin-top: 0;
+    }
+    
+    .modal label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    
+    .modal input,
+    .modal textarea,
+    .modal select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    /* Modal Actions */
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .modal-actions button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .modal-actions button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+    }
+    
+    .modal-actions button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    
+    .modal-actions button[type="button"] {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    
+    .modal-actions button[type="button"]:hover {
+      background-color: #e2e6ea;
+    }
   
-  /* Modal Overlay */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  /* Modal Box */
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modal h2 {
-    margin-top: 0;
-  }
-  
-  .modal label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  .modal input,
-  .modal textarea,
-  .modal select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .modal-actions {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .modal-actions button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .modal-actions button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .modal-actions button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  .modal-actions button[type="button"] {
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  .modal-actions button[type="button"]:hover {
-    background-color: #e2e6ea;
-  }
-  
+
+    
+/* Tag Input Section */
+.tag-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tag-input input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.tag-input button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tag-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Tag List */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-item {
+  background-color: #e7f3ff;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #007bff;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.tag-item .remove-tag {
+  background: none;
+  border: none;
+  color: #ff0000;
+  font-size: 1rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.tag-item .remove-tag:hover {
+  color: #cc0000;
+}

@@ -99,3 +99,22 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
+
+
+
+  /* Add Recipe Button */
+  .add-recipe-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .add-recipe-button:hover {
+    background-color: #0056b3;
+  }
+  
