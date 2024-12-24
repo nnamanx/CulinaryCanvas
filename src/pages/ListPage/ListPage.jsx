@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import AddRecipeModal from '../../components/AddRecipeModal/AddRecipeModal';
+import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './ListPage.css';
 
 const ListPage = () => {
@@ -38,30 +41,49 @@ const ListPage = () => {
       .catch((error) => console.error('Error adding recipe:', error));
   };
   
- return (
-    <div className={`list-page ${showModal ? 'darkened' : ''}`}>
-      <h1>All Recipes</h1>
-      <button className="add-recipe-button" onClick={() => setShowModal(true)}>
-        Create Recipe
-      </button>
-      <div className="recipe-list">
-        {recipes.map((recipe) => (
-          <div className="recipe-card" key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <div className="recipe-tags">
-                {recipe.tags.map((tag, index) => (
-                  <span key={index} className="recipe-tag">{tag}</span>
-                ))}
-              </div>
-          <p className="last-updated">Last Updated: {new Date(recipe.lastUpdated).toLocaleString()}</p>
-          <a href={`/recipes/${recipe.id}`} className="view-recipe-link">View Recipe</a>
+  const updateOrderOnServer = (newOrder) => {
+    newOrder.forEach((recipe, index) => {
+      fetch(`http://localhost:3030/recipes/${recipe.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...recipe, order: index }),
+      }).catch((error) => console.error(`Error updating recipe ${recipe.id}:`, error));
+    });
+  };
+
+  // Move recipe to new position
+  const moveRecipe = (dragIndex, hoverIndex) => {
+    const updatedRecipes = [...recipes];
+    const [draggedItem] = updatedRecipes.splice(dragIndex, 1);
+    updatedRecipes.splice(hoverIndex, 0, draggedItem);
+
+    setRecipes(updatedRecipes); // Update state
+    updateOrderOnServer(updatedRecipes); // Persist new order
+  };
+  
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <div className={`list-page ${showModal ? 'darkened' : ''}`}>
+        <h1>All Recipes</h1>
+        <button className="add-recipe-button" onClick={() => setShowModal(true)}>
+          Create Recipe
+        </button>
+        <div className="recipe-list">
+          {recipes.map((recipe, index) => (
+            <RecipeCard
+              key={recipe.id}
+              recipe={recipe}
+              index={index}
+              moveRecipe={moveRecipe}
+            />
+          ))}
         </div>
-        
-        ))}
+        {showModal && <AddRecipeModal onClose={() => setShowModal(false)} onSave={addRecipe} />}
       </div>
-      {showModal && <AddRecipeModal onClose={() => setShowModal(false)} onSave={addRecipe} />}
-    </div>
+    </DndProvider>
   );
 };
 
