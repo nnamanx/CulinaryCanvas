@@ -25,7 +25,6 @@
       "order": 0
     },
     {
-      "id": "2",
       "title": "Chicken Tikka Masala",
       "description": "A flavorful Indian curry with tender chicken pieces in a spiced creamy sauce.",
       "ingredients": [
@@ -36,17 +35,17 @@
         "Spices"
       ],
       "preparationSteps": [
-        "Marinate chicken in yogurt and spices.",
-        "Cook chicken until tender.",
-        "Prepare sauce with tomato puree and cream, then combine with chicken."
+        "Marinate chicken in yogurt and spices",
+        "Cook chicken until tender",
+        "Prepare sauce with tomato puree and cream, then combine with chicken"
       ],
       "tags": [
         "Indian",
         "Main Course"
       ],
       "difficulty": "Medium",
-      "lastUpdated": "2024-12-29T12:00:00Z",
-      "order": 2
+      "id": "2",
+      "lastUpdated": "2025-01-03T21:00:55.716Z"
     },
     {
       "id": "3",
