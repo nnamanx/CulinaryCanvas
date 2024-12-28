@@ -1,0 +1,63 @@
+.filter-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .filter-menu {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-menu h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .filter-section {
+    margin-bottom: 10px;
+  }
+  
+  .filter-section label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .filter-section input,
+  .filter-section select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .filter-tag {
+    background-color: #e7f3ff;
+    color: #007bff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-tag:hover {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .filter-tag.selected {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
