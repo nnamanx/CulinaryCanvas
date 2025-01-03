@@ -18,6 +18,7 @@ const ListPage = () => {
   const [filterToggled, setFilterToggled] = useState(false);
   const [sortMenuToggled, setSortMenuToggled] = useState(false);
   const [selectedSort, setSelectedSort] = useState('default');
+  const [selectedRecipes, setSelectedRecipes] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3030/recipes')
@@ -33,6 +34,34 @@ const ListPage = () => {
       })
       .catch((error) => console.error('Error fetching recipes:', error));
   }, []);
+
+  const toggleRecipeSelection = (recipeId) => {
+    setSelectedRecipes((prevSelected) => {
+      if (prevSelected.includes(recipeId)) {
+        return prevSelected.filter((id) => id !== recipeId); // Deselect if already selected
+      } else {
+        return [...prevSelected, recipeId]; // Select if not already selected
+      }
+    });
+  };
+  
+  const handleShare = () => {
+    const recipesToShare = recipes.filter((recipe) => selectedRecipes.includes(recipe.id));
+  
+    if (recipesToShare.length === 0) {
+      alert('No recipes selected to share!');
+      return;
+    }
+  
+    const jsonPayload = JSON.stringify(recipesToShare, null, 2); // Pretty JSON format
+  
+    // Create a `mailto` link
+    const subject = encodeURIComponent('Shared Recipes');
+    const body = encodeURIComponent(`Here are the recipes in JSON format:\n\n${jsonPayload}`);
+  
+    // Open the user's email client
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  };
   
   const handleSort = (attribute) => {
     setSelectedSort(attribute); // Track the selected sorting option
@@ -94,20 +123,6 @@ const ListPage = () => {
       .catch((error) => console.error('Error adding recipe:', error));
   };  
   
-
-  const updateOrderOnServer = (newOrder) => {
-    // Iterate over each recipe and update its order on the server
-    newOrder.forEach((recipe, index) => {
-      fetch(`http://localhost:3030/recipes/${recipe.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...recipe, order: index }), // Add an `order` field for persistence
-      }).catch((error) => console.error(`Error updating recipe ${recipe.id}:`, error));
-    });
-  };
-  
   const toggleTagSelection = (tag) => {
     setSelectedTags((prevSelected) => {
       const newSelectedTags = prevSelected.includes(tag)
@@ -153,10 +168,6 @@ const ListPage = () => {
     setFilteredRecipes(updatedRecipes); // Update filtered view
   };
   
-  const onDrop = () => {
-    updateOrderOnServer(recipes);
-  };
-  
   // Filter recipes based on search query
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -195,12 +206,14 @@ const ListPage = () => {
           searchToggled={searchToggled}
           setSearchToggled={setSearchToggled}
           onAddRecipe={addRecipe} 
+          onShare={handleShare}
+          selectedRecipeCount={selectedRecipes.length}
         />
         <RecipeList
           recipes={filteredRecipes}
           moveRecipe={moveRecipe}
-          onDrop={() => {}}
           toggleTagSelection={toggleTagSelection}
+          toggleRecipeSelection={toggleRecipeSelection}
           selectedTags={selectedTags}
         />
        {showModal && <AddRecipeModal onClose={() => setShowModal(false)} onSave={addRecipe} />}

@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipeList.css';
 
-const RecipeList = ({ recipes, moveRecipe, onDrop, toggleTagSelection, selectedTags }) => {
+const RecipeList = ({ recipes, moveRecipe, onDrop, toggleTagSelection, toggleRecipeSelection, selectedTags }) => {
   return (
     <div className="recipe-list">
       {recipes.map((recipe, index) => (
@@ -13,6 +13,7 @@ const RecipeList = ({ recipes, moveRecipe, onDrop, toggleTagSelection, selectedT
           moveRecipe={moveRecipe}
           onDrop={onDrop}
           toggleTagSelection={toggleTagSelection}
+          toggleRecipeSelection={toggleRecipeSelection}
           selectedTags={selectedTags}
         />
       ))}

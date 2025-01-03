@@ -18,7 +18,9 @@ const Toolbar = ({
   handleSearch,
   searchToggled,
   setSearchToggled,
-  onAddRecipe, // Callback for adding a recipe
+  onAddRecipe,
+  onShare,
+  selectedRecipeCount
 }) => {
   
   const [showModal, setShowModal] = useState(false); // State for modal visibility
@@ -181,10 +183,19 @@ const Toolbar = ({
           onClose={() => setShowModal(false)}
           onSave={(newRecipe) => {
             onAddRecipe(newRecipe);
-            setShowModal(false); // Close modal after saving
+            setShowModal(false);
           }}
         />
       )}
+
+      <button
+        onClick={onShare}
+        disabled={selectedRecipeCount === 0} 
+        className="share-button"
+      >
+        Share Recipes ({selectedRecipeCount})
+      </button>
+
     </div>
   );
 };

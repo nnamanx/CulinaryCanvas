@@ -5,6 +5,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    margin-bottom: 20px;
   }
   
   
@@ -46,22 +47,29 @@
   }
   
   /* Create Recipe Button */
+
   .add-recipe-button {
-    background-color: #e7f3ff;
-    color: #007bff;
-    font-size: 1rem;
-    padding: 10px 15px;
-    border-radius: 15px;
-    border: 1px solid #007bff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-recipe-button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
+      background-color: #e7f3ff;
+      color: #007bff;
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 15px;
+      border: 1px solid #007bff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .add-recipe-button:hover {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .add-recipe-button.selected {
+      background-color: #007bff;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
   /* Tag Input Section */
   .tag-input {
     display: flex;
@@ -149,16 +157,6 @@
   }
   
   /* Filter Menu Styles */
-  .filter-button {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-  }
-  
   .filter-menu {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -381,4 +379,21 @@
     color: white;
     border-radius: 5px;
   }
-  
+  .share-button:disabled {
+    background-color: #e7f3ff;
+    color: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+.share-button {
+  background-color: #007bff;
+  color: #e7f3ff;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+

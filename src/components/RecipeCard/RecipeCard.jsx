@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
-
-const RecipeCard = ({ recipe, index, moveRecipe, onDrop, toggleTagSelection, selectedTags }) => {
+const RecipeCard = ({ recipe, index, moveRecipe, onDrop, toggleTagSelection, toggleRecipeSelection, selectedTags, isSelected }) => {
   const ref = React.useRef(null);
 
   const [, drop] = useDrop({
@@ -32,7 +31,14 @@ const RecipeCard = ({ recipe, index, moveRecipe, onDrop, toggleTagSelection, sel
       className={`recipe-card ${isDragging ? 'dragging' : ''}`}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      <h3>{recipe.title}</h3>
+      <div className="recipe-card-header">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRecipeSelection(recipe.id)}
+        />
+        <h3>{recipe.title}</h3>
+      </div>
       <p>{recipe.description}</p>
 
       {/* Tags Section */}
@@ -40,8 +46,8 @@ const RecipeCard = ({ recipe, index, moveRecipe, onDrop, toggleTagSelection, sel
         {recipe.tags.map((tag, index) => (
           <button
             key={index}
-            className={`recipe-tag ${selectedTags.includes(tag) ? 'selected' : ''}`} // Apply selected class
-            onClick={() => toggleTagSelection(tag)} // Toggle tag on click
+            className={`recipe-tag ${selectedTags.includes(tag) ? 'selected' : ''}`}
+            onClick={() => toggleTagSelection(tag)}
           >
             {tag}
           </button>

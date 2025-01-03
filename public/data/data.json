@@ -25,6 +25,7 @@
       "order": 0
     },
     {
+      "id": "2",
       "title": "Chicken Tikka Masala",
       "description": "A flavorful Indian curry with tender chicken pieces in a spiced creamy sauce.",
       "ingredients": [
@@ -35,17 +36,17 @@
         "Spices"
       ],
       "preparationSteps": [
-        "Marinate chicken in yogurt and spices",
-        "Cook chicken until tender",
-        "Prepare sauce with tomato puree and cream, then combine with chicken"
+        "Marinate chicken in yogurt and spices.",
+        "Cook chicken until tender.",
+        "Prepare sauce with tomato puree and cream, then combine with chicken."
       ],
       "tags": [
         "Indian",
         "Main Course"
       ],
       "difficulty": "Medium",
-      "id": "2",
-      "lastUpdated": "2025-01-03T21:00:55.716Z"
+      "lastUpdated": "2024-12-29T12:00:00Z",
+      "order": 2
     },
     {
       "id": "3",
@@ -68,6 +69,238 @@
       "difficulty": "Easy",
       "lastUpdated": "2024-12-28T14:00:00Z",
       "order": 1
+    },
+    {
+      "id": "4",
+      "title": "Beef Stroganoff",
+      "description": "A hearty Russian dish with tender beef and creamy mushroom sauce.",
+      "ingredients": [
+        "Beef",
+        "Mushrooms",
+        "Onions",
+        "Sour Cream",
+        "Egg Noodles"
+      ],
+      "preparationSteps": [
+        "Cook beef slices until browned.",
+        "Sauté mushrooms and onions.",
+        "Combine with sour cream and serve over egg noodles."
+      ],
+      "tags": [
+        "Russian",
+        "Main Course"
+      ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-27T16:00:00Z",
+      "order": 3
+    },
+    {
+      "id": "5",
+      "title": "Margherita Pizza",
+      "description": "A simple yet delicious Italian pizza with fresh mozzarella, basil, and tomato sauce.",
+      "ingredients": [
+        "Pizza Dough",
+        "Tomato Sauce",
+        "Mozzarella",
+        "Basil"
+      ],
+      "preparationSteps": [
+        "Spread tomato sauce on pizza dough.",
+        "Add mozzarella and bake until cheese melts.",
+        "Top with fresh basil."
+      ],
+      "tags": [
+        "Italian",
+        "Main Course"
+      ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-26T18:00:00Z",
+      "order": 6
+    },
+    {
+      "title": "Vegetable Stir-Fry",
+      "description": "A quick and healthy mix of colorful vegetables sautéed with soy sauce.",
+      "ingredients": [
+        "Broccoli",
+        "Carrots",
+        "Bell Peppers",
+        "Soy Sauce",
+        "Garlic"
+      ],
+      "preparationSteps": [
+        "Chop vegetables",
+        "Stir-fry vegetables in a pan with soy sauce and garlic"
+      ],
+      "tags": [
+        "Asian",
+        "Vegetarian",
+        "Main Course"
+      ],
+      "difficulty": "Easy",
+      "id": "6",
+      "lastUpdated": "2024-12-30T00:23:52.745Z",
+      "order": 4
+    },
+    {
+      "id": "7",
+      "title": "Pancakes",
+      "description": "Fluffy breakfast pancakes served with syrup and toppings.",
+      "ingredients": [
+        "Flour",
+        "Milk",
+        "Eggs",
+        "Sugar",
+        "Baking Powder"
+      ],
+      "preparationSteps": [
+        "Mix flour, milk, eggs, sugar, and baking powder.",
+        "Pour batter onto a hot griddle and cook until golden brown.",
+        "Serve with syrup or desired toppings."
+      ],
+      "tags": [
+        "Breakfast",
+        "Dessert"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-24T08:00:00Z",
+      "order": 5
+    },
+    {
+      "id": "8",
+      "title": "Tuna Sandwich",
+      "description": "A quick and tasty tuna sandwich with mayonnaise and fresh veggies.",
+      "ingredients": [
+        "Bread",
+        "Tuna",
+        "Mayonnaise",
+        "Lettuce",
+        "Tomato"
+      ],
+      "preparationSteps": [
+        "Mix tuna with mayonnaise.",
+        "Spread mixture on bread slices and add lettuce and tomato."
+      ],
+      "tags": [
+        "Lunch",
+        "Snack"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-23T13:00:00Z",
+      "order": 7
+    },
+    {
+      "title": "Chocolate Chip Cookies",
+      "description": "Classic cookies with a crisp edge and gooey chocolate centers.",
+      "ingredients": [
+        "Flour",
+        "Butter",
+        "Sugar",
+        "Chocolate Chips",
+        "Eggs"
+      ],
+      "preparationSteps": [
+        "Mix flour, butter, sugar, eggs, and chocolate chips",
+        "Scoop dough onto a baking sheet and bake until golden"
+      ],
+      "tags": [
+        "Dessert",
+        "Snack"
+      ],
+      "difficulty": "Easy",
+      "id": "9",
+      "lastUpdated": "2024-12-30T14:58:19.668Z",
+      "order": 8
+    },
+    {
+      "id": "10",
+      "title": "Tomato Basil Soup",
+      "description": "A comforting soup made with fresh tomatoes and basil.",
+      "ingredients": [
+        "Tomatoes",
+        "Basil",
+        "Onions",
+        "Garlic",
+        "Cream"
+      ],
+      "preparationSteps": [
+        "Sauté onions and garlic.",
+        "Add tomatoes and simmer.",
+        "Blend the mixture and add cream and fresh basil."
+      ],
+      "tags": [
+        "Soup",
+        "Appetizer"
+      ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-21T09:00:00Z",
+      "order": 10
+    },
+    {
+      "title": "Grilled Salmon",
+      "description": "Juicy salmon fillet grilled with a touch of lemon and herbs.",
+      "ingredients": [
+        "Salmon",
+        "Lemon",
+        "Olive Oil",
+        "Garlic",
+        "Herbs"
+      ],
+      "preparationSteps": [
+        "Marinate salmon with olive oil, garlic, lemon, and herbs",
+        "Grill until cooked through"
+      ],
+      "tags": [
+        "Main Course",
+        "Seafood"
+      ],
+      "difficulty": "Medium",
+      "id": "11",
+      "lastUpdated": "2024-12-30T19:33:16.923Z"
+    },
+    {
+      "id": "12",
+      "title": "Cod Piccata",
+      "description": "This cod piccata is lemony, bright, and fresh.",
+      "ingredients": [
+        "1 1/2 pounds cod filets in serving-sized pieces",
+        "salt and pepper to taste",
+        "4 teaspoons all-purpose flour",
+        "unsalted butter",
+        "1 large lemon",
+        "2 tablespoons thinly sliced shallot",
+        "3 tablespoons capers",
+        "1/4 cup dry white wine",
+        "3/4 cup low-sodium chicken broth",
+        "2 tablespoons minced fresh parsley"
+      ],
+      "preparationSteps": [
+        "Pat cod filets dry with paper towels and lightly season both sides with salt and pepper",
+        "Use a scant teaspoon of flour to very lightly dust one side of cod filets",
+        "See note",
+        "Melt 2 tablespoons butter in a large skillet over medium high heat",
+        "When butter stops bubbling, add cod filets, floured side down",
+        "Cook undisturbed, until a light brown color develops, about 3 minutes",
+        "Keeping the floured side up, carefully remove filets from skillet and keep warm",
+        "Cook lemon slices in the same skillet for 2 to 3 minutes, turning to cook evenly, and add shallots and capers",
+        "Cook about 1 minute more",
+        "Stir in white wine; cook about 1 minute, scraping up any browned bits from the bottom of the skillet",
+        "Stir in chicken broth and chopped parsley, and squeeze juice of reserved lemon half into the skillet; cook about 4 minutes",
+        "Gently return filets to the skillet, floured side up",
+        "Cook in the sauce until an instant read thermometer inserted in the center reads 145 degrees F (63 degrees C)",
+        "Remove to a serving plate, floured side up, and keep warm",
+        "Remove about 1/4 cup of liquid from skillet; allow to cool slightly",
+        "Add remaining 2 tablespoons butter to skillet and stir until melted",
+        "Whisk cooled liquid and remaining flour together to make a smooth slurry",
+        "Stir slurry briskly into the skillet, and  cook until sauce is thickened and bubbly",
+        "Pour sauce over cod filets, and garnish with parsley sprigs"
+      ],
+      "tags": [
+        "Dinner",
+        "Healthy"
+      ],
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-29T23:54:16.897Z",
+      "order": 9
     }
   ],
   "messages": [

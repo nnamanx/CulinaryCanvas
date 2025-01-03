@@ -17,6 +17,11 @@
     text-align: center; /* Center content */
   }
   
+  .recipe-card.selected {
+    border: 2px solid #007bff;
+    background-color: #e6f7ff;
+  }
+
   .recipe-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -74,3 +79,35 @@
       padding: 10px;
     }
   }
+
+  .custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .custom-checkbox input {
+    display: none; /* Hide the default checkbox */
+  }
+  
+  .custom-checkbox .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .custom-checkbox.checked .checkmark {
+    background-color: #4caf50; /* Change to desired color */
+    border-color: #4caf50;
+  }
+  
+  .custom-checkbox .checked-label {
+    font-size: 14px;
+    color: #4caf50; /* Change text color to match */
+  }
+  
