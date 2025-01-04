@@ -19,6 +19,8 @@ const ListPage = () => {
   const [sortMenuToggled, setSortMenuToggled] = useState(false);
   const [selectedSort, setSelectedSort] = useState('default');
   const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 10;
 
   useEffect(() => {
     fetch('http://localhost:3030/recipes')
@@ -27,13 +29,24 @@ const ListPage = () => {
         const sortedData = data.sort((a, b) => b.order - a.order); // Descending order
         setRecipes(sortedData);
         setFilteredRecipes(sortedData); // Initialize filtered recipes
-  
+
         // Extract unique tags from recipes
         const uniqueTags = [...new Set(data.flatMap((recipe) => recipe.tags))];
         setExistingTags(uniqueTags);
       })
       .catch((error) => console.error('Error fetching recipes:', error));
   }, []);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  // Calculate recipes to display on the current page
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+  const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
 
   const toggleRecipeSelection = (recipeId) => {
     setSelectedRecipes((prevSelected) => {
@@ -160,12 +173,16 @@ const ListPage = () => {
   };
   
   const moveRecipe = (dragIndex, hoverIndex) => {
-    const updatedRecipes = [...recipes];
-    const [draggedItem] = updatedRecipes.splice(dragIndex, 1);
-    updatedRecipes.splice(hoverIndex, 0, draggedItem);
+    const pageStartIndex = (currentPage - 1) * recipesPerPage;
+    const dragGlobalIndex = pageStartIndex + dragIndex;
+    const hoverGlobalIndex = pageStartIndex + hoverIndex;
   
-    setRecipes(updatedRecipes); // Update local state
-    setFilteredRecipes(updatedRecipes); // Update filtered view
+    const updatedRecipes = [...recipes];
+    const [draggedItem] = updatedRecipes.splice(dragGlobalIndex, 1);
+    updatedRecipes.splice(hoverGlobalIndex, 0, draggedItem);
+
+    setRecipes(updatedRecipes);
+    setFilteredRecipes(updatedRecipes);
   };
   
   // Filter recipes based on search query
@@ -210,14 +227,36 @@ const ListPage = () => {
           selectedRecipeCount={selectedRecipes.length}
         />
         <RecipeList
-          recipes={filteredRecipes}
+          recipes={currentRecipes}
           moveRecipe={moveRecipe}
           toggleTagSelection={toggleTagSelection}
           toggleRecipeSelection={toggleRecipeSelection}
           selectedTags={selectedTags}
         />
        {showModal && <AddRecipeModal onClose={() => setShowModal(false)} onSave={addRecipe} />}
-
+       <div className="pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => handlePageChange(i + 1)}
+              className={currentPage === i + 1 ? 'active' : ''}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </DndProvider>
   );
